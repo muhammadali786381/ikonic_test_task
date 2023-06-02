@@ -1,0 +1,14 @@
+.coffee-container {
+    text-align: center;
+}
+
+.coffee-link,
+.refresh-button {
+    display: inline-block;
+    margin: 10px;
+    background-color: #ff6d00;
+    color: #000;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+}

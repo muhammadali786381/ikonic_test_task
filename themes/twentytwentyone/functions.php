@@ -654,3 +654,64 @@ if ( ! function_exists( 'wp_get_list_item_separator' ) ) :
 		return __( ', ', 'twentytwentyone' );
 	}
 endif;
+
+
+
+/*
+Ikonic Solution Test Task code
+*/
+
+
+/* 
+Task - 3
+Write a function that will redirect the user away from the site if their IP address starts with 77.29. Use WordPress native hooks and APIs to handle this.
+*/
+
+//Redirect function based on Visitor IP
+function redirect_if_ip_starts_with_7729() {
+	// get user ip
+    $user_ip = $_SERVER['REMOTE_ADDR'];
+	//echo $user_ip;
+
+    if (strpos($user_ip, '77.29.') === 0) {
+        wp_redirect('https://ikonicsolution.com/');
+        exit;
+    }
+}
+//add into the hook
+add_action('template_redirect', 'redirect_if_ip_starts_with_7729');
+
+
+/* 
+Task - 4
+Register post type called "Projects" and a taxonomy "Project Type" for this post type.
+*/
+
+// funtion for register post and taxonomy
+function register_custom_post_type_and_taxonomy() {
+    // Register Projects post type
+    $args = array(
+        'labels' => array(
+            'name' => 'Projects',
+            'singular_name' => 'Project',
+        ),
+        'public' => true,
+        'has_archive' => true,
+    );
+    register_post_type('projects', $args);
+
+    // Register Project Type taxonomy
+    $args = array(
+        'labels' => array(
+            'name' => 'Project Types',
+            'singular_name' => 'Project Type',
+			
+        ),
+        'public' => true,
+        'hierarchical' => true,
+	);
+    register_taxonomy('project_type', 'projects', $args);
+}
+//add into the hook
+add_action('init', 'register_custom_post_type_and_taxonomy');
+
