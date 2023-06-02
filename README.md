@@ -8,7 +8,7 @@
 # --Using theme function.php file
 
 5.      Create a WordPress archive page that displays six Projects per page with pagination. Simple pagination is enough (with next, prev buttons) (Done)
-# --Using theme function.php file
+# ----Create a new file called "archive-projects.php" within the theme (custom page template)
 
 6.      Create an Ajax endpoint that will output the last three published "Projects" that belong in the "Project Type" called "Architecture" If the user is not logged in. If the user is logged In it should return the last six published "Projects" in the project type call. "Architecture". Results should be returned in the following JSON format {success: true, data: [{object}, {object}, {object}, {object}, {object}]}. The object should contain three properties (id, title, link). (Done)
 # --Create a plugin named "projects-end-points"
